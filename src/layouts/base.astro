@@ -1,0 +1,22 @@
+---
+import '../global.css'
+
+const {
+	dark = true,
+	title = 'Argentinizacion',
+	description = ''
+} = Astro.props
+---
+
+<html lang='es' class:list={[{ 'bg-zinc-900': dark }, 'scroll-smooth']}>
+	<head>
+		<meta charset='utf-8' />
+		<meta name='viewport' content='width=device-width' />
+		<title>{title}</title>
+		<meta name='description' content={description} />
+		<meta name='theme-color' content='#fff600' />
+		<link rel='icon' href='/favicon.svg' type='image/svg+xml' />
+	</head>
+
+	<body ><slot /></body>
+</html>

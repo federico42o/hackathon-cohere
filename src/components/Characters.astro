@@ -1,0 +1,57 @@
+---
+
+---
+<div class='inset-0 -z-20'>
+	<div
+		id='icons'
+		class=' relative [&>img]:p-4 [&>img]:w-24 [&>img]:h-24 [&>img]:fill-current [&>img]:opacity-0 [&>img]:absolute h-full'
+	>
+
+		<img src="/3099038.svg" alt="" >
+		<img src="/29718.svg" alt="" >
+		<img src="/777.png" alt="" >
+		<img src="/234.png" alt="" >
+		<img src="/444.png" alt="" >
+		<img src="/555.png" alt="" >
+		<img src="/10.png" alt="" >
+		
+	</div>
+	<slot />
+</div>
+<script type='module'>
+const characters = document.getElementById('icons')
+const svgs = Array.from(characters.querySelectorAll('img'))
+
+const w = window.innerWidth
+const h = window.innerHeight - 300
+
+function animateBackgroundIcons () {
+	const availableSvgs = svgs.filter((svg) => !svg.isAnimating)
+	const svgToAnimate = availableSvgs[Math.floor(Math.random() * availableSvgs.length)]
+	if (!svgToAnimate) return
+
+	svgToAnimate.addEventListener(
+		'animationend',
+		() => {
+			svgToAnimate.classList.remove('animate-moving-background')
+			svgToAnimate.removeAttribute('style')
+			svgToAnimate.isAnimating = false
+			
+		},
+		{ once: true }
+	)
+
+	svgToAnimate.setAttribute(
+		'style',
+		`top: ${Math.floor(Math.random() * h)}px;
+				left: ${Math.floor(Math.random() * w)}px;`
+	)
+
+	svgToAnimate.classList.add('animate-moving-background')
+	svgToAnimate.isAnimating = true
+}
+
+setInterval(animateBackgroundIcons, 1000)
+animateBackgroundIcons()
+
+</script>
