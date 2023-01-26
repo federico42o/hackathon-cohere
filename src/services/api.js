@@ -27,11 +27,8 @@ export async function data(inp) {
       Argentinian: Te la re mandaste
       --
       --
-      Spanish: Pijo
-      --
-      --
-      Incorrect sample: "${inp}"
-      Correct sample:`,
+      Spanish: "${inp}
+      Argentinian: `,
       max_tokens: 40,
       temperature: 0.3,
       k: 0,
