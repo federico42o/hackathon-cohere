@@ -1,0 +1,15 @@
+{
+  "projectId": "prj_ms0RblxHNzaidyQoQCdaR3Kkhylv",
+  "orgId": "QrvugBXoLbkjMtr5pKtXDK99",
+  "settings": {
+    "createdAt": 1674705639894,
+    "framework": "astro",
+    "devCommand": null,
+    "installCommand": null,
+    "buildCommand": null,
+    "outputDirectory": null,
+    "rootDirectory": null,
+    "directoryListing": false,
+    "nodeVersion": "18.x"
+  }
+}
