@@ -1,7 +1,64 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.boton-primario{
+    @apply btn px-6 py-2 transition ease-in duration-200 uppercase rounded-full hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none;
+}
+
 .btn{
     color:#499bf1;
     border-color: #499bf1;
 }
 .hidden{
     display: none;
+}
+body{
+    overflow-y: hidden;
+}
+.message {
+    margin-bottom: 10px;
+    }
+
+.message.is-user {
+align-self: flex-start;
+background-color: rgb(49, 104, 177);
+color: #ffffff;
+font-size: 16px;
+}   
+.message.bot {
+align-self: flex-end;
+background-color: rgb(101, 212, 231);
+color: #ffffff;
+font-size: 16px;
+}
+a>.message.bot {
+    align-self: flex-end;
+    background-color: rgb(232, 144, 235);
+    color: #ffffff;
+    font-size: 16px;
+    }
+.loading-response-bot {
+align-self: flex-end;
+color: #ffffff;
+font-size: 16px;
+}
+
+.dark body {
+background-color: rgb(24 24 27);
+color: #fff;
+}
+.dark body {
+    background-color: rgb(24 24 27);
+    color: #fff;
+    }
+  
+.dark .nav-links a {
+color: #fff;
+}
+
+.dark .container{
+    background-color: rgb(28 25 23);
+    color: #1d1d1d
 }

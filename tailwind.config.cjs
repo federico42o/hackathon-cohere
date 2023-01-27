@@ -4,9 +4,7 @@ module.exports = {
 	plugins: [],
 	theme: {
 		extend: {			
-			dropShadow: {
-			'4xl': ['0px 0px 20px rgba(255, 221, 31, 0.75)', '0 0px 30px rgba(255, 221, 31, 0.95)']
-	},zIndex: {
+		zIndex: {
         '100': '100',
 		'200': '200',
 		'300': '300',
@@ -16,6 +14,9 @@ module.exports = {
       },
 	  container: {
 		center: true,
+	  },
+	  height: {
+		'600': '60rem',
 	  },
 
 	animation: {
@@ -36,18 +37,6 @@ module.exports = {
 			'100%': {
 				transform: 'translateY(-150px)',
 				opacity: .8
-			}
-		}
-	},
-	colors: {
-		background: {
-			lightblue: {
-				100: '#95eff6',
-				200: '##2193b0'
-			},
-			white: {
-				100: '#c8feff',
-				200: '##6dd5ed'
 			}
 		}
 	},

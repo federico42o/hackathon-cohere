@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es" class="bg-zinc-900 scroll-smooth">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Argentinizacion</title>
+		<meta name="description" content="">
+		<meta name="theme-color" content="#fff600">
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+	<link rel="stylesheet" href="/_astro/index.d9722006.css" /></head>
+
+	<body><style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).visible=(s,c,n)=>{const r=async()=>{await(await s())()};let i=new IntersectionObserver(e=>{for(const t of e)if(!!t.isIntersecting){i.disconnect(),r();break}});for(let e=0;e<n.children.length;e++){const t=n.children[e];i.observe(t)}},window.dispatchEvent(new Event("astro:visible"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><div class="inset-0 -z-20">
+	<div id="icons" class=" relative [&>img]:p-4 [&>img]:w-24 [&>img]:h-24 [&>img]:fill-current [&>img]:opacity-0 [&>img]:absolute h-full">
+
+		<img src="/3099038.svg" alt="">
+		<img src="/29718.svg" alt="">
+		<img src="/777.png" alt="">
+		<img src="/234.png" alt="">
+		<img src="/444.png" alt="">
+		<img src="/555.png" alt="">
+		<img src="/10.png" alt="">
+		
+	</div>
+	
+</div>
+<script type="module">
+const characters = document.getElementById('icons')
+const svgs = Array.from(characters.querySelectorAll('img'))
+
+const w = window.innerWidth
+const h = window.innerHeight - 300
+
+function animateBackgroundIcons () {
+	const availableSvgs = svgs.filter((svg) => !svg.isAnimating)
+	const svgToAnimate = availableSvgs[Math.floor(Math.random() * availableSvgs.length)]
+	if (!svgToAnimate) return
+
+	svgToAnimate.addEventListener(
+		'animationend',
+		() => {
+			svgToAnimate.classList.remove('animate-moving-background')
+			svgToAnimate.removeAttribute('style')
+			svgToAnimate.isAnimating = false
+			
+		},
+		{ once: true }
+	)
+
+	svgToAnimate.setAttribute(
+		'style',
+		`top: ${Math.floor(Math.random() * h)}px;
+				left: ${Math.floor(Math.random() * w)}px;`
+	)
+
+	svgToAnimate.classList.add('animate-moving-background')
+	svgToAnimate.isAnimating = true
+}
+
+setInterval(animateBackgroundIcons, 1000)
+animateBackgroundIcons()
+
+</script><!-- <Hero/> --><astro-island uid="Z1dIy7z" component-url="/_astro/Main.b564cf48.js" component-export="default" renderer-url="/_astro/client.0a29acc0.js" props="{}" ssr="" client="visible" opts="{&quot;name&quot;:&quot;Main&quot;,&quot;value&quot;:true}" await-children=""><div class="flex flex-col justify-between max-w-5xl rounded-lg mx-auto mt-32 bg-white dark:bg-gray-800 z-10 relative min-h-[32rem]"><div class="flex flex-col align-center justify-between text-center w-full mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20 relative"><h2 class="text-3xl font-extrabold text-black dark:text-white sm:text-4xl"><span class="block">Pensando en irte a Argentina ?
+                    </span>
+                    <span class="block text-indigo-500">Aprende algunas palabras
+                    </span></h2>
+                <p class="text-xl mt-4 max-w-md mx-auto text-gray-400">Escribe una palabra en tu jerga y la traduciré al argentino 🇦🇷
+                </p></div>
+        <div class="flex justify-evenly py-6"><button type="button" class="btn px-6 py-2 transition ease-in duration-200 uppercase rounded-full hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none">Probar
+          </button></div></div></astro-island></body></html>

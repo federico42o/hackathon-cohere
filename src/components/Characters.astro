@@ -1,7 +1,7 @@
 ---
 
 ---
-<div class='inset-0 -z-20'>
+<div class='inset-0 -z-20 max-h-screen'>
 	<div
 		id='icons'
 		class=' relative [&>img]:p-4 [&>img]:w-24 [&>img]:h-24 [&>img]:fill-current [&>img]:opacity-0 [&>img]:absolute h-full'
@@ -20,35 +20,37 @@
 </div>
 <script type='module'>
 const characters = document.getElementById('icons')
-const svgs = Array.from(characters.querySelectorAll('img'))
+const imgs = Array.from(characters.querySelectorAll('img'))
 
-const w = window.innerWidth
-const h = window.innerHeight - 300
+const width = window.innerWidth +300
+const height = window.innerHeight +300
+console.log(width,height)
 
 function animateBackgroundIcons () {
-	const availableSvgs = svgs.filter((svg) => !svg.isAnimating)
-	const svgToAnimate = availableSvgs[Math.floor(Math.random() * availableSvgs.length)]
-	if (!svgToAnimate) return
+	const images = imgs.filter((img) => !img.isAnimating)
+	const imgToAnimate = images[Math.floor(Math.random() * images.length)]
+	if (!imgToAnimate) return
 
-	svgToAnimate.addEventListener(
+	imgToAnimate.addEventListener(
 		'animationend',
 		() => {
-			svgToAnimate.classList.remove('animate-moving-background')
-			svgToAnimate.removeAttribute('style')
-			svgToAnimate.isAnimating = false
+			console.log((height/1.7),(width/1.7))
+			imgToAnimate.classList.remove('animate-moving-background')
+			imgToAnimate.removeAttribute('style')
+			imgToAnimate.isAnimating = false
 			
 		},
 		{ once: true }
 	)
-
-	svgToAnimate.setAttribute(
+	imgToAnimate.setAttribute(
 		'style',
-		`top: ${Math.floor(Math.random() * h)}px;
-				left: ${Math.floor(Math.random() * w)}px;`
+		`top: ${Math.floor(Math.random() * width +24)}px;
+				left: ${Math.floor(Math.random() *  height+24)}px;`
 	)
 
-	svgToAnimate.classList.add('animate-moving-background')
-	svgToAnimate.isAnimating = true
+
+	imgToAnimate.classList.add('animate-moving-background')
+	imgToAnimate.isAnimating = true
 }
 
 setInterval(animateBackgroundIcons, 1000)

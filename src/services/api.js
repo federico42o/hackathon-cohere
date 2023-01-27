@@ -5,33 +5,84 @@ const COHERE_API_URL = 'https://api.cohere.ai/generate';
 
 
 export async function data(inp) {
-    const data = {
+    const prompt = {
       model: 'xlarge',
-      prompt: `This program can translate from Spanish slang to Argentinian slang
-      Spanish: ostia tio
-      Response: Sarpado amigo
+      prompt: `This program generates a recipe with the input ingredientes separated by a comma.
+
+      Ingredients: dough, meat, onion  
+      Recipe: Whit those ingredients yo can make: Empanadas
       --
-      Spanish: flipo en colores
-      Argentinian: Esta re piola
+      Ingredients: meat, garlic, sal  
+      Recipe: Whit those ingredients yo can make: Asado
       --
-      Spanish:  Vale
-      Argentinian: De una
-      --
-      Spanish: Currar
-      Argentinian: Laburar
-      --
-      Spanish: Te la has liado
-      Argentinian: Te la re mandaste
-      --
-      Spanish: Te la has liado
-      Argentinian: Te la re mandaste
-      --
-      --
-      Spanish: Pijo
-      --
-      --
-      Incorrect sample: "${inp}"
-      Correct sample:`,
+      Ingredients: meat, egg, breadcrumbs  
+      Recipe: Whit those ingredients yo can make: Milanesa
+      --  
+      Ingredients: meat, garlic, herbs  
+      Recipe: Whit those ingredients yo can make: Asado
+      --  
+      Ingredients: chorizo, skillet, chimichurri  
+      Recipe: Whit those ingredients yo can make: Choripan
+      --  
+      Ingredients: provolone cheese, garlic, oi
+      Recipe: Whit those ingredients yo can make: Provoleta
+      --  
+      Ingredients: flour, eggs, sugar 
+      Recipe: Whit those ingredients yo can make: Panettone
+      --  
+      Ingredients: lentils, meat, onion 
+      Recipe: Whit those ingredients yo can make: Lentil
+      --  
+      Ingredients: rye flour, yeast, water 
+      Recipe: Whit those ingredients yo can make: Rye bread
+      --  
+      Ingredients: flour, water, oil 
+      Recipe: Whit those ingredients yo can make: Churros
+      --  
+      Ingredients: meat, potato, carrot 
+      Recipe: Whit those ingredients yo can make: Puchero
+      --  
+      Ingredients: meat, chimichurri, salad
+      Recipe: Whit those ingredients yo can make: Carne a la Parrilla
+      --  
+      Ingredients: corn, meat, chorizo 
+      Recipe: Whit those ingredients yo can make: Locro
+      --  
+      Ingredients: potato, eggs, flour 
+      Recipe: Whit those ingredients yo can make: Gnocchis
+      --  
+      Ingredients: dough, humita, cheese 
+      Recipe: Whit those ingredients yo can make: Empanada de Humita
+      --  
+      Ingredients: meat, potato, carrot
+      Recipe: Whit those ingredients yo can make: Bife a la criolla
+      --  
+      Ingredients: rice, milk, sugar 
+      Recipe: Whit those ingredients yo can make: Arroz con leche
+      --  
+      Ingredients: noodles, meat, vegetables 
+      Recipe: Whit those ingredients yo can make: Sopa de fideos
+      --  
+      Ingredients: chicken, garlic, white winer 
+      Recipe: Whit those ingredients yo can make: Pollo al horno
+      --  
+      Ingredients:  flour, yeast, water, salt 
+      Recipe: Whit those ingredients yo can make: Pan de campo
+      --  
+      Ingredients: dough, chicken, onion 
+      Recipe: Whit those ingredients yo can make: Empanadas de pollo
+      --  
+      Ingredients: crum bread, ham, cheese 
+      Recipe: Whit those ingredients yo can make: Sandwich de miga
+      --  
+      Ingredients: flour, cheese, tomatoe 
+      Recipe: Whit those ingredients yo can make: Pizza
+      --  
+      Ingredients: oil, eggs, flor 
+      Recipe: Whit those ingredients yo can make: Omelette
+      --  
+      Ingredients: ${inp}
+      Recipe: Whit those ingredients yo can make`,
       max_tokens: 40,
       temperature: 0.3,
       k: 0,
@@ -49,49 +100,9 @@ export async function data(inp) {
         "Content-Type": 'application/json',
         "Cohere-Version": '2022-12-06'
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(prompt)
     }).then(res => res.json())
-  
-    const { text } = response.generations[0]
-    return text
-      .replace('--', '')
-      .replaceAll('"', '')
-      .trim()
+    return response
+
+
   }
-
-
-
-// export async function data(promt){
-    
-//     const options = {
-//     method: 'POST',
-//     url: COHERE_API_URL,
-//     headers: {
-//       accept: 'application/json',
-//       'Cohere-Version': '2022-12-06',
-//       'content-type': 'application/json',
-//       authorization: `Bearer ${COHERE_API_KEY}`	
-//     },
-//     data: {
-//       max_tokens: 20,
-//       return_likelihoods: 'NONE',
-//       truncate: 'END',
-//       prompt:
-//       `--
-//       Spanish: ${promt}
-//       Argentinian:
-//       --`
-//     }
-//   };
-    
-//     axios
-//     .request(options)
-//     .then(res => response.json()) 
-//     .catch(function (error) {     
-//       console.error(error);
-//     })
-    
-//     const response = await data();
-
-//     return response[0].text;
-// }
