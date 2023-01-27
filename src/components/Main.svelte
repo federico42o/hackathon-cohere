@@ -35,15 +35,12 @@
             <div class="flex flex-col align-center justify-between text-center w-full mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20 relative" >
                 <h2 class="text-3xl font-extrabold text-black dark:text-white sm:text-4xl">
                     <span class="block">
-                       Pensando en irte a Argentina ?
+                       ¿Pensando en irte a Argentina o conocer su cultura?
                     </span>
                     <span class="block text-indigo-500">
-                        Aprende algunas palabras
+                        Explora nuevas recetas
                     </span>
                 </h2>
-                <p class="text-xl mt-4 max-w-md mx-auto text-gray-400">
-                    Escribe una palabra en tu jerga y la traduciré al argentino &#127462;&#127479
-                </p>
             </div>
         <div class="flex justify-evenly py-6">
             <button
