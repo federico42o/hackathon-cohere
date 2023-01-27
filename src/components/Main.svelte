@@ -31,17 +31,20 @@
     <ChatWindow />
 
     {:else}
-        <div class="flex flex-col justify-between max-w-5xl rounded-lg mx-auto mt-32 bg-white dark:bg-gray-800 z-10 relative min-h-[32rem]">
+        <div class="flex flex-col justify-between max-w-5xl rounded-lg mx-auto mt-24 bg-white dark:bg-gray-800 z-10 relative min-h-[32rem]">
             <div class="flex flex-col align-center justify-between text-center w-full mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20 relative" >
-                <h2 class="text-3xl font-extrabold text-black dark:text-white sm:text-4xl">
-                    <span class="block">
+                <h1 class="text-3xl font-extrabold text-black dark:text-white sm:text-4xl">
+
                        ¿Pensando en irte a Argentina o conocer su cultura?
-                    </span>
-                    <span class="block text-indigo-500">
+                    </h1>
+
+                    <h2 class=" text-indigo-500 text-3xl">
                         Explora nuevas recetas
-                    </span>
-                </h2>
-            </div>
+                    </h2>  
+        </div>
+        <div>
+        <img src="ezgif-5-01fa5d91e3.webp" alt="messi" class="mx-auto"/>    
+        </div>  
         <div class="flex justify-evenly py-6">
             <button
             on:click={toggleTextArea}
