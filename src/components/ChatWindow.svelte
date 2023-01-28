@@ -1,12 +1,13 @@
 
 <script type='module'>
+    let date = new Date();
     import Loader from './Loader.svelte';
     import { afterUpdate } from 'svelte';
     import {data as api} from '../services/api.js';
     const URL_RECIPE = 'https://cocinerosargentinos.com/busqueda?q=';
 
     let messages = [{
-        text: 'Hi, I am a chatbot. I can help you find recipes. What ingredients do you have?',
+        text: 'Hi, I am a chatbot. I can help you find argentinian recipes. What ingredients do you have?',
         isUser: false,
         isLink: false
     }];
@@ -73,13 +74,52 @@
         node.scroll({ top: node.scrollHeight, behavior: 'smooth' });
       };
 
+      function dragMe(node) {
+        if (navigator.userAgent.match(/Mobi/i) || navigator.maxTouchPoints > 0) {
+            return;
+          }
+        let moving = false;
+        let left = window.innerWidth / 2 - node.offsetWidth / 2;
+        let top = window.innerHeight / 2 - node.offsetHeight / 2;
+          console.log(left,top)
+        node.style.position = 'absolute';
+        node.style.top = `${top}px`;
+        node.style.left = `${left}px`;
+        node.style.cursor = 'grab';
+        node.style.userSelect = 'none';
+
+        node.addEventListener('mousedown', () => {
+
+            moving = true;
+        });
+        
+       window.addEventListener('mousemove', (e) => {
+             if (moving) {
+
+                    left += e.movementX;
+                    top += e.movementY;
+                    node.style.top = `${top}px`;
+                    node.style.left = `${left}px`;
+                    node.style.cursor = `grabbing`;
+               }
+            });
+            
+       
+        window.addEventListener('mouseup', () => {
+            moving = false;
+            node.style.cursor = `grab`;
+        });
+   
+   }
 
     </script>
   
 
 
-  <section class="container relative px-3 min-h-fit w-96 mt-32 z-0 flex flex-col justify-end mx-auto chat-window bg-slate-400 dark:bg-slate-700 h-96 rounded-lg">
-
+  <section use:dragMe class="container relative px-3 min-h-fit w-96 mt-32 z-0 flex flex-col justify-end mx-auto chat-window font-semibold bg-zinc-900 dark:bg-slate-700 h-96 rounded-lg cursor-grab">
+    <div class="flex justify-start min-h-min flex-1 self-center my-1">
+        {date.toLocaleDateString()}
+    </div>
       <div bind:this={element} class="messages overflow-y-auto flex flex-col  p-4 scroll-mb-0">
         
         {#if promise}
@@ -109,7 +149,7 @@
     <div class=" flex m-1"  >
       <input on:keypress={keyPress}
        type="text"
-       class="p-2 flex-1 focus:outline-none caret-current rounded-xl" bind:value={currentMessage} placeholder="Type your message here" />
+       class="p-2 flex-1 focus:outline-none caret-current rounded-xl text-zinc-900" bind:value={currentMessage} placeholder="e.g.: meat,cheese,onions" />
       <button 
         on:click={handleClick}
         

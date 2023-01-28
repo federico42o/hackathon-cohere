@@ -1,59 +1,56 @@
 ---
 
 ---
-<div class='inset-0 -z-20 max-h-screen'>
+<section
+id='hero'
+class='absolute w-full h-screen overflow-hidden -z-200 bg-transparent'>
+<slot >
+
+<div class='inset-0 -z-0 max-h-screen absolute'>
 	<div
 		id='icons'
 		class=' relative [&>img]:p-4 [&>img]:w-24 [&>img]:h-24 [&>img]:fill-current [&>img]:opacity-0 [&>img]:absolute h-full'
 	>
 
-		<img src="/3099038.webp" alt="" >
-		<img src="/29718.webp" alt="" >
-		<img src="/777.webp" alt="" >
-		<img src="/234.webp" alt="" >
-		<img src="/444.webp" alt="" >
-		<img src="/555.webp" alt="" >
-		<img src="/10.webp" alt="" >
+		<img src="/4.webp" alt="" >
+		<img src="/2.webp" alt="" >
+		<img src="/7.webp" alt="" >
+		<img src="/3.webp" alt="" >
+		<img src="/4.webp" alt="" >
+		<img src="/5.webp" alt="" >
+		<img src="/1.webp" alt="" >
 		
 	</div>
-	<slot />
 </div>
+</slot>
+</section>
 <script type='module'>
-const characters = document.getElementById('icons')
-const imgs = Array.from(characters.querySelectorAll('img'))
-
-const width = window.innerWidth +300
-const height = window.innerHeight +300
-console.log(width,height)
-
-function animateBackgroundIcons () {
-	const images = imgs.filter((img) => !img.isAnimating)
-	const imgToAnimate = images[Math.floor(Math.random() * images.length)]
-	if (!imgToAnimate) return
-
-	imgToAnimate.addEventListener(
+const section = document.getElementById('icons')
+const icons = Array.from(section.querySelectorAll('img'))
+const screenHeight = window.innerHeight - 300 //para q no se muevan
+const screenWidth = window.innerWidth 	
+function animateBackground () {
+	const images = icons.filter((img) => !img.isAnimating)
+	const ToAnimate = images[Math.floor(Math.random() * images.length)]
+	if (!ToAnimate) return
+	ToAnimate.addEventListener(
 		'animationend',
 		() => {
-			console.log((height/1.7),(width/1.7))
-			imgToAnimate.classList.remove('animate-moving-background')
-			imgToAnimate.removeAttribute('style')
-			imgToAnimate.isAnimating = false
-			
+			ToAnimate.classList.remove('animate-moving-background')
+			ToAnimate.removeAttribute('style')
+			ToAnimate.isAnimating = false
 		},
 		{ once: true }
 	)
-	imgToAnimate.setAttribute(
+	ToAnimate.setAttribute(
 		'style',
-		`top: ${Math.floor(Math.random() * width +24)}px;
-				left: ${Math.floor(Math.random() *  height+24)}px;`
+		`top: ${Math.floor(Math.random() * screenHeight)}px;
+		left: ${Math.floor(Math.random() * screenWidth)}px;`
 	)
-
-
-	imgToAnimate.classList.add('animate-moving-background')
-	imgToAnimate.isAnimating = true
+	ToAnimate.classList.add('animate-moving-background')
+	ToAnimate.isAnimating = true
 }
-
-setInterval(animateBackgroundIcons, 1000)
-animateBackgroundIcons()
+setInterval(animateBackground, 1000)
+animateBackground()
 
 </script>

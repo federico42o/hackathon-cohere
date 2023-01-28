@@ -45,20 +45,22 @@ color: #ffffff;
 font-size: 16px;
 }
 
-.dark body {
+.dark{
 background-color: rgb(24 24 27);
 color: #fff;
 }
-.dark body {
-    background-color: rgb(24 24 27);
-    color: #fff;
+.light{
+    background-color:rgb(101, 212, 231);
+    color: rgb(24 24 27);
+    }
+ body.dark >input {
+    color: rgb(24 24 27);
     }
   
 .dark .nav-links a {
 color: #fff;
 }
-
-.dark .container{
-    background-color: rgb(28 25 23);
-    color: #1d1d1d
+.themeToggle:hover{
+    cursor: pointer;
+    filter: drop-shadow(1px 0px 5px rgba(3, 203, 218, 0.4));
 }
