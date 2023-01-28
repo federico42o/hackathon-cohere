@@ -16,9 +16,9 @@ const {
 		<meta name='viewport' content='width=device-width' />
 		<title>{title}</title>
 		<meta name='description' content={description} />
-
+		<meta data-mode="dark" name="theme-color" content="#1d1d1d" />
 		<link rel='icon' href='/favicon.svg' type='image/svg+xml' />
 	</head>
 
-	<body ><slot /></body>
+	<body class="min-h-screen" ><slot /></body>
 </html>

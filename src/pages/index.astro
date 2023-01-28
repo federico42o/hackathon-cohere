@@ -3,6 +3,8 @@ import Layout from '../layouts/base.astro';
 import Characters from '../components/Characters.astro';
 import Main from '../components/Main.svelte';
 import ThemeIcon from '../components/ThemeIcon.astro';
+import Footer from '../components/Footer.astro';
+import Note from '../components/Note.svelte';
 ---
 
 <Layout>
@@ -10,4 +12,5 @@ import ThemeIcon from '../components/ThemeIcon.astro';
   <Characters/>
   <!-- <Home/> -->
   <Main client:visible/>
+  <Footer />
 </Layout>
