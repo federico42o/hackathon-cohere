@@ -30,7 +30,10 @@ module.exports = {
 			center: true,
 		},
 		height: {
-			'600': '60rem',
+			'120': '50vh',
+		},
+		width: {
+			'120': '90vw',
 		},
 
 		animation: {

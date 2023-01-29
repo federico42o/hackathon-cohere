@@ -1,11 +1,10 @@
 
 <script type='module'>
-    let date = new Date();
     import Loader from './Loader.svelte';
     import { afterUpdate } from 'svelte';
     import {data as api} from '../services/api.js';
     const URL_RECIPE = 'https://cocinerosargentinos.com/busqueda?q=';
-
+    let date = new Date();
     let messages = [{
         text: 'Hi, I am a chatbot. I can help you find argentinian recipes. What ingredients do you have?',
         isUser: false,
@@ -46,6 +45,7 @@
             await botResponse(messages[messages.length - 1].text);
             promise = false;
         }
+
         currentMessage = '';
     
     };
@@ -80,7 +80,7 @@
           }
         let moving = false;
         let left = window.innerWidth / 2 - node.offsetWidth / 2;
-        let top = window.innerHeight / 2 - node.offsetHeight / 2;
+        let top = window.innerHeight / 2 - node.offsetHeight;
           console.log(left,top)
         node.style.position = 'absolute';
         node.style.top = `${top}px`;
@@ -122,10 +122,8 @@
     </div>
       <div bind:this={element} class="messages overflow-y-auto flex flex-col  p-4 scroll-mb-0">
         
-        {#if promise}
-        <Loader />
 
-        {:else}
+        
         {#each messages as message}
         <span href={message.link} target="_blank" rel="noreferrer" class="message break-normal max-w-fit rounded-xl px-2 {message.isUser ? 'is-user' : 'bot'}">
             {message.text}
@@ -138,6 +136,9 @@
         
         {/if}
         {/each}
+
+        {#if promise}
+        <Loader />
         {/if}
         </div>
 

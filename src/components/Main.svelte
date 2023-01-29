@@ -31,8 +31,8 @@
     <ChatWindow />
 
     {:else}
-        <div class="flex flex-col justify-between max-w-5xl rounded-lg mx-auto mt-16
-         bg-white dark:bg-zinc-900 bg-blend-screen z-10 relative min-h-[32rem]">
+        <div class="flex flex-col justify-between max-w-5xl rounded-lg m-auto
+         bg-white dark:bg-zinc-900 z-10 relative min-h-[32rem]">
             <div class="flex flex-col align-center justify-between text-center w-full mx-auto
              py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20 relative" >
                 <h1 class="text-3xl font-extrabold bg-white dark:bg-zinc-900 text-black
