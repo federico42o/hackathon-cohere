@@ -10,6 +10,7 @@
         isUser: false,
         isLink: false
     }];
+    let record = [];
     let currentMessage = '';
     let alreadyWelcomed = false;
     let promise = false
@@ -24,17 +25,29 @@
             promise = false;
         }
     });
-
+    const addRecord = (response,link) => {
+        if (!promise && record.text !== '') {
+            record= [...record, {text: response.trim(), link: link, date: date.toLocaleString()}];
+            window.localStorage.setItem('answers', JSON.stringify(record));
+        }
+      };
+    
+      const clearRecords = () => {
+        window.localStorage.setItem('answers', JSON.stringify([]));
+      };
 
     const botResponse= async (answer) => {
         const response = await api(answer);
         const result = response.generations[0].text.replace('--', '').replace(':','')
         const search = URL_RECIPE.concat(result.trim().split(' ').join('+'));
+        
         messages = [...messages, { text: result , isUser: false, isLink:search.includes('https') ? true : false, link: search}];
         currentMessage = '';
         promise = false;
+        addRecord(result,search);
+
     }
-  
+    console.log(record)
     const  handleClick = async () => {
         if (alreadyWelcomed) {
             messages = [...messages, { text: currentMessage, isUser: true }];
