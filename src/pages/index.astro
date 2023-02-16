@@ -4,13 +4,14 @@ import Characters from '../components/Characters.astro';
 import Main from '../components/Main.svelte';
 import ThemeIcon from '../components/ThemeIcon.astro';
 import Footer from '../components/Footer.astro';
-import Note from '../components/Note.svelte';
 ---
 
 <Layout>
-  <ThemeIcon/>
   <Characters/>
-  <!-- <Home/> -->
-  <Main client:visible/>
+  <main class="container mx-auto">
+      <ThemeIcon/>
+      <!-- <Home/> -->
+      <Main client:visible/>
+  </main>
   <Footer />
 </Layout>

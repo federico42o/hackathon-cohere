@@ -6,83 +6,55 @@ const COHERE_API_URL = 'https://api.cohere.ai/generate';
 
 export async function data(inp) {
     const prompt = {
-      model: 'xlarge',
+      model: '583e7acb-eefe-4f99-b59a-04a4c5e5f7cb-ft',
       prompt: `This program generates a recipe with the input ingredientes separated by a comma.
-
-      Ingredients: dough, meat, onion  
-      Recipe: Whit those ingredients yo can make: Empanadas
-      --
-      Ingredients: meat, garlic, sal  
-      Recipe: Whit those ingredients yo can make: Asado
-      --
-      Ingredients: meat, egg, breadcrumbs  
-      Recipe: Whit those ingredients yo can make: Milanesa
+  
+      Recipe: Whit those ingredients you can make: Milanesa
       --  
       Ingredients: meat, garlic, herbs  
-      Recipe: Whit those ingredients yo can make: Asado
+      Recipe: Whit those ingredients you can make: Asado
       --  
       Ingredients: chorizo, skillet, chimichurri  
-      Recipe: Whit those ingredients yo can make: Choripan
+      Recipe: Whit those ingredients you can make: Choripan
       --  
       Ingredients: provolone cheese, garlic, oi
-      Recipe: Whit those ingredients yo can make: Provoleta
+      Recipe: Whit those ingredients you can make: Provoleta
       --  
       Ingredients: flour, eggs, sugar 
-      Recipe: Whit those ingredients yo can make: Panettone
+      Recipe: Whit those ingredients you can make: Panettone
       --  
       Ingredients: lentils, meat, onion 
-      Recipe: Whit those ingredients yo can make: Lentil
+      Recipe: Whit those ingredients you can make: Lentil
       --  
       Ingredients: rye flour, yeast, water 
-      Recipe: Whit those ingredients yo can make: Rye bread
+      Recipe: Whit those ingredients you can make: Rye bread
       --  
       Ingredients: flour, water, oil 
-      Recipe: Whit those ingredients yo can make: Churros
+      Recipe: Whit those ingredients you can make: Churros
       --  
       Ingredients: meat, potato, carrot 
-      Recipe: Whit those ingredients yo can make: Puchero
+      Recipe: Whit those ingredients you can make: Puchero
       --  
       Ingredients: meat, chimichurri, salad
-      Recipe: Whit those ingredients yo can make: Carne a la Parrilla
+      Recipe: Whit those ingredients you can make: Carne a la Parrilla
       --  
       Ingredients: corn, meat, chorizo 
-      Recipe: Whit those ingredients yo can make: Locro
+      Recipe: Whit those ingredients you can make: Locro
       --  
       Ingredients: potato, eggs, flour 
-      Recipe: Whit those ingredients yo can make: Gnocchis
+      Recipe: Whit those ingredients you can make: Gnocchis
       --  
       Ingredients: dough, humita, cheese 
-      Recipe: Whit those ingredients yo can make: Empanada de Humita
+      Recipe: Whit those ingredients you can make: Empanada de Humita
       --  
       Ingredients: meat, potato, carrot
-      Recipe: Whit those ingredients yo can make: Bife a la criolla
+      Recipe: Whit those ingredients you can make: Bife a la criolla
       --  
       Ingredients: rice, milk, sugar 
-      Recipe: Whit those ingredients yo can make: Arroz con leche
-      --  
-      Ingredients: noodles, meat, vegetables 
-      Recipe: Whit those ingredients yo can make: Sopa de fideos
-      --  
-      Ingredients: chicken, garlic, white winer 
-      Recipe: Whit those ingredients yo can make: Pollo al horno
-      --  
-      Ingredients:  flour, yeast, water, salt 
-      Recipe: Whit those ingredients yo can make: Pan de campo
-      --  
-      Ingredients: dough, chicken, onion 
-      Recipe: Whit those ingredients yo can make: Empanadas de pollo
-      --  
-      Ingredients: crum bread, ham, cheese 
-      Recipe: Whit those ingredients yo can make: Sandwich de miga
-      --  
-      Ingredients: flour, cheese, tomatoe 
-      Recipe: Whit those ingredients yo can make: Pizza
-      --  
-      Ingredients: oil, eggs, flor 
-      Recipe: Whit those ingredients yo can make: Omelette
-      --  
+      Recipe: Whit those ingredients you can make: Arroz con leche
+      --
       Ingredients: ${inp}
-      Recipe: Whit those ingredients yo can make`,
+      Recipe:`,
       max_tokens: 40,
       temperature: 0.3,
       k: 0,

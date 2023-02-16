@@ -1,6 +1,45 @@
----
 
----
+<script type='module'>
+	const section = document.getElementById('icons')
+	const icons = Array.from(section.querySelectorAll('img'))
+	const screenHeight = window.innerHeight - 300 //para q no se muevan
+	const screenWidth = window.innerWidth 	
+	function animateBackground () {
+		const images = icons.filter((img) => !img.isAnimating)
+		const ToAnimate = images[Math.floor(Math.random() * images.length)]
+		if (!ToAnimate) return
+		ToAnimate.addEventListener(
+			'animationend',
+			() => {
+				ToAnimate.classList.remove('animate-moving-background')
+				ToAnimate.removeAttribute('style')
+				ToAnimate.isAnimating = false
+			},
+			{ once: true }
+		)
+		ToAnimate.setAttribute(
+			'style',
+			`top: ${Math.floor(Math.random() * screenHeight)}px;
+			left: ${Math.floor(Math.random() * screenWidth)}px;`
+		)
+		ToAnimate.classList.add('animate-moving-background')
+		ToAnimate.isAnimating = true
+	}
+	setInterval(animateBackground, 1000)
+	animateBackground()
+	
+	</script>
+
+
+
+
+
+
+
+
+
+
+
 <section
 id='hero'
 class='absolute w-full h-screen overflow-hidden -z-200 bg-transparent'>
@@ -24,33 +63,4 @@ class='absolute w-full h-screen overflow-hidden -z-200 bg-transparent'>
 </div>
 </slot>
 </section>
-<script type='module'>
-const section = document.getElementById('icons')
-const icons = Array.from(section.querySelectorAll('img'))
-const screenHeight = window.innerHeight - 300 //para q no se muevan
-const screenWidth = window.innerWidth 	
-function animateBackground () {
-	const images = icons.filter((img) => !img.isAnimating)
-	const ToAnimate = images[Math.floor(Math.random() * images.length)]
-	if (!ToAnimate) return
-	ToAnimate.addEventListener(
-		'animationend',
-		() => {
-			ToAnimate.classList.remove('animate-moving-background')
-			ToAnimate.removeAttribute('style')
-			ToAnimate.isAnimating = false
-		},
-		{ once: true }
-	)
-	ToAnimate.setAttribute(
-		'style',
-		`top: ${Math.floor(Math.random() * screenHeight)}px;
-		left: ${Math.floor(Math.random() * screenWidth)}px;`
-	)
-	ToAnimate.classList.add('animate-moving-background')
-	ToAnimate.isAnimating = true
-}
-setInterval(animateBackground, 1000)
-animateBackground()
 
-</script>
